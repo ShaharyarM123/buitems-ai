@@ -387,7 +387,7 @@ function DashboardPage() {
       }
 
       // Dynamic Backend URL for Mobile / Production Support
-      const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://buitems-ai-production.up.railway.app';        
+      const API_BASE_URL = 'https://buitems-ai-production.up.railway.app';        
       let endpoint = `${API_BASE_URL}/api/ai/ask-anything`;
       if (activeTab === 'Note Expander') endpoint = `${API_BASE_URL}/api/ai/expand-notes`;
       else if (activeTab === 'PDF Uploader') endpoint = `${API_BASE_URL}/api/ai/pdf-analysis`;
@@ -1158,7 +1158,7 @@ function DashboardPage() {
 }
 
 // Strict Default Export for Next.js App Router
-export default DashboardPage;[cite: 1]
+export default DashboardPage;
 
 
 
