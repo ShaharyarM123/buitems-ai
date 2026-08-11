@@ -17,23 +17,16 @@ connectDB();
 
 const app = express();
 
-// CORS configuration for production and local development
-const allowedOrigins = [
-  process.env.FRONTEND_URL || 'https://buitems-ai-tc5c.vercel.app',
-  ...(process.env.NODE_ENV !== 'production' ? ['http://localhost:3000'] : []),
-  ...(process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',').map(origin => origin.trim()).filter(Boolean) : []),
-];
-
-app.use(cors({
-  origin(origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    return callback(new Error('The CORS policy for this site does not allow access from the specified Origin.'), false);
-  },
+// CORS configuration: accept any incoming valid origin and reflect it back.
+const corsOptions = {
+  origin: true,
   credentials: true,
-}));
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // Body parsers
 app.use(express.json());
