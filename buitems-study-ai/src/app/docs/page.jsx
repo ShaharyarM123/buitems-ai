@@ -419,7 +419,7 @@ export default function DocsPage() {
 //                   Configure Environment Variables
 //                 </h4>
 //                 <div className="p-3.5 rounded-xl bg-black border border-zinc-800 font-mono text-xs text-orange-400 overflow-x-auto">
-//                   NEXT_PUBLIC_BACKEND_URL=http://localhost:5000<br/>
+//                   NEXT_PUBLIC_BACKEND_URL=http://localhost:<br/>
 //                   MONGODB_URI=your_mongodb_cluster_connection_string
 //                 </div>
 //               </div>
