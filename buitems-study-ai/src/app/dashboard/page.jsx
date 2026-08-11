@@ -388,9 +388,10 @@ function DashboardPage() {
 
       // Dynamic Backend URL for Mobile / Production Support
       const API_BASE_URL = 'https://buitems-ai-production.up.railway.app';        
-      let endpoint = `${API_BASE_URL}/api/ai/ask-anything`;
-      if (activeTab === 'Note Expander') endpoint = `${API_BASE_URL}/api/ai/expand-notes`;
-      else if (activeTab === 'PDF Uploader') endpoint = `${API_BASE_URL}/api/ai/pdf-analysis`;
+     // ✅ Is tarah direct likh do:
+let endpoint = 'https://buitems-ai-production.up.railway.app/api/ai/ask-anything';
+if (activeTab === 'Note Expander') endpoint = 'https://buitems-ai-production.up.railway.app/api/ai/expand-notes';
+else if (activeTab === 'PDF Uploader') endpoint = 'https://buitems-ai-production.up.railway.app/api/ai/pdf-analysis';
 
       const payload = { prompt: finalQuery, tool: activeTab };
       if (hasImages) payload.images = noteExpanderImages.map(img => img.base64);
