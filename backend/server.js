@@ -20,7 +20,8 @@ const app = express();
 // Enable CORS for Next.js frontend (Local & Vercel live domain)
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://buitems-ai.vercel.app' // Agar aapka koi aur Vercel URL ho toh woh bhi yahan add kar sakte hain
+// Agar aapka koi aur Vercel URL ho toh woh bhi yahan add kar sakte hain
+'https://buitems-ai-tc5c.vercel.app/signup'
 ];
 
 app.use(cors({
