@@ -1082,7 +1082,7 @@ function DashboardPage() {
         onClose={() => setIsSettingsOpen(false)}
       />
     </div>
-  );
+  );s
 }
 
 export default DashboardPage;
