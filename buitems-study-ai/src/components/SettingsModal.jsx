@@ -11,13 +11,13 @@ export default function SettingsModal({ isOpen, onClose }) {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [profileName, setProfileName] = useState('MIR SHAHARYAR');
+  const [profileName, setProfileName] = useState('BUITEMS AI Platform');
   const [isEditingName, setIsEditingName] = useState(false);
   const [tempName, setTempName] = useState(profileName);
 
   useEffect(() => {
     setMounted(true);
-    const savedName = localStorage.getItem('profileName');
+    const savedName = localStorage.getItem('buitems_user_name');
     if (savedName) {
       setProfileName(savedName);
       setTempName(savedName);
@@ -28,14 +28,14 @@ export default function SettingsModal({ isOpen, onClose }) {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('profileName');
+    localStorage.removeItem('buitems_user_name');
     router.push('/');
   };
 
   const handleSaveName = () => {
     if (tempName.trim()) {
       setProfileName(tempName.trim());
-      localStorage.setItem('profileName', tempName.trim());
+      localStorage.setItem('buitems_user_name', tempName.trim());
     }
     setIsEditingName(false);
   };
@@ -171,7 +171,7 @@ export default function SettingsModal({ isOpen, onClose }) {
 //   const router = useRouter();
 //   const { theme, setTheme } = useTheme();
 //   const [mounted, setMounted] = useState(false);
-//   const [profileName, setProfileName] = useState('MIR SHAHARYAR');
+//   const [profileName, setProfileName] = useState('BUITEMS AI Platform');
 //   const [isEditingName, setIsEditingName] = useState(false);
 //   const [tempName, setTempName] = useState(profileName);
 

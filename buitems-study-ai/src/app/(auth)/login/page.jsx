@@ -20,7 +20,7 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
 
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://buitems-ai-production.up.railway.app';
 
     try {
       const res = await fetch(`${backendUrl}/api/auth/login`, {

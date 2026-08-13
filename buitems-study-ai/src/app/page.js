@@ -374,7 +374,7 @@ export default function Home() {
                 <label className="block text-xs font-bold mb-1 uppercase tracking-wider text-zinc-700">Your Name</label>
                 <input 
                   type="text" 
-                  placeholder="Mir Shaharyar" 
+                  placeholder="Your full name" 
                   className="w-full px-4 py-3 rounded-xl border border-zinc-300 bg-white text-zinc-900 placeholder:text-zinc-400 text-sm focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-colors" 
                 />
               </div>
@@ -748,7 +748,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Email Address</label>
@@ -1045,7 +1045,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Email Address</label>
@@ -1330,7 +1330,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Email Address</label>
@@ -1579,7 +1579,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Email Address</label>
@@ -1846,7 +1846,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/80 text-sm focus:outline-none focus:border-orange-500 transition-colors" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-400">Email Address</label>
@@ -2128,7 +2128,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-slate-400">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/80 text-sm text-slate-100 focus:outline-none focus:border-orange-500 transition-colors" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/80 text-sm text-slate-100 focus:outline-none focus:border-orange-500 transition-colors" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-slate-400">Email Address</label>
@@ -2333,7 +2333,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-slate-400">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/80 text-sm text-slate-100 focus:outline-none focus:border-blue-500 transition-colors" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/80 text-sm text-slate-100 focus:outline-none focus:border-blue-500 transition-colors" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-slate-400">Email Address</label>
@@ -2537,7 +2537,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-slate-400">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/80 text-sm text-slate-100 focus:outline-none focus:border-blue-500 transition-colors" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/80 text-sm text-slate-100 focus:outline-none focus:border-blue-500 transition-colors" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-slate-400">Email Address</label>
@@ -2666,7 +2666,7 @@ export default function Home() {
 //             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-4 text-left">
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-500">Your Name</label>
-//                 <input type="text" placeholder="Mir Shaharyar" className="w-full px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400" />
+//                 <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-sm focus:outline-none focus:ring-1 focus:ring-zinc-400" />
 //               </div>
 //               <div>
 //                 <label className="block text-xs font-semibold mb-1 uppercase tracking-wider text-zinc-500">Email Address</label>
