@@ -3,14 +3,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Bookmark, Check, CornerDownRight, Zap } from 'lucide-react';
+import { Bookmark, Check, Zap } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 export default function AIResponseCard({ message, onRegenerate, onBookmark }) {
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [followUpInput, setFollowUpInput] = useState('');
-  const [followUpSubmitted, setFollowUpSubmitted] = useState(false);
 
   const handleBookmarkClick = (content) => {
     setIsBookmarked(true);
@@ -49,7 +47,7 @@ export default function AIResponseCard({ message, onRegenerate, onBookmark }) {
           </div>
 
           {/* Clean Formatted Markdown Text */}
-          <div className="text-sm md:text-base leading-relaxed text-zinc-800 font-sans space-y-3">
+          <div className="text-sm sm:text-base leading-relaxed text-zinc-800 font-sans space-y-3">
             <ReactMarkdown 
               remarkPlugins={[remarkGfm]}
               components={{
@@ -69,31 +67,7 @@ export default function AIResponseCard({ message, onRegenerate, onBookmark }) {
           </div>
         </div>
 
-        {/* INLINE FOLLOW-UP Q&A */}
-        <div className="pt-1">
-          {!followUpSubmitted ? (
-            <div className="flex items-center gap-2 bg-zinc-50 border border-zinc-200 p-2 rounded-xl">
-              <CornerDownRight className="w-4 h-4 text-zinc-400 ml-2" />
-              <input 
-                type="text"
-                value={followUpInput}
-                onChange={(e) => setFollowUpInput(e.target.value)}
-                placeholder="Ask a contextual follow-up on this response..."
-                className="flex-1 bg-transparent border-none outline-none text-xs md:text-sm py-1.5 px-1 text-zinc-900 placeholder-zinc-400"
-              />
-              <button 
-                onClick={() => { if(followUpInput.trim()) setFollowUpSubmitted(true); }}
-                className="px-4 py-1.5 rounded-lg bg-zinc-900 text-white text-xs font-semibold hover:bg-zinc-800 transition-colors"
-              >
-                Ask AI
-              </button>
-            </div>
-          ) : (
-            <div className="text-xs text-zinc-500 italic px-2">
-              Follow-up query queued: "{followUpInput}"
-            </div>
-          )}
-        </div>
+        {/* Follow-up UI removed for simplified UX */}
       </div>
     </div>
   );

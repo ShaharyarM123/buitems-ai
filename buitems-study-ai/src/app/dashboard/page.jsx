@@ -29,13 +29,14 @@ function DashboardPage() {
   });
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   // --- CURRENT TOOL STATE DEFINATION ---
   const currentToolState = toolStates[activeTab] || { messages: [], input: '' };
 
   // --- USER PROFILE & THEME STATES ---
-  const [userName, setUserName] = useState('MIR SHAHARYAR');
-  const [tempName, setTempName] = useState('MIR SHAHARYAR');
+  const [userName, setUserName] = useState('BUITEMS AI Platform');
+  const [tempName, setTempName] = useState('BUITEMS AI Platform');
   const [isEditingName, setIsEditingName] = useState(false);
   const [themeMode, setThemeMode] = useState('light');
 
@@ -105,6 +106,16 @@ function DashboardPage() {
       ...prev,
       [activeTab]: { ...prev[activeTab], input: val }
     }));
+  };
+
+  const handleInputAutoResize = (e) => {
+    try {
+      const ta = e.target;
+      ta.style.height = 'auto';
+      ta.style.height = `${ta.scrollHeight}px`;
+    } catch (err) {
+      // ignore
+    }
   };
 
   const handleSaveName = () => {
@@ -958,7 +969,7 @@ else if (activeTab === 'PDF Uploader') endpoint = 'https://buitems-ai-production
                 currentToolState.messages.map((msg) => (
                   msg.sender === 'user' ? (
                     <div key={msg.id} className="flex justify-end w-full">
-                      <div className="max-w-[90%] sm:max-w-[80%] bg-zinc-100 text-zinc-900 border border-zinc-200 px-5 py-3.5 rounded-2xl rounded-br-none text-sm flex items-start gap-3 shadow-sm">
+                      <div className="max-w-[90%] sm:max-w-[80%] bg-zinc-100 text-zinc-900 border border-zinc-200 px-5 py-3.5 rounded-2xl rounded-br-none text-sm sm:text-base flex items-start gap-3 shadow-sm">
                         <span className="leading-relaxed whitespace-pre-wrap break-words">{msg.text}</span>
                         <div className="p-1 rounded-full bg-black text-white shrink-0 mt-0.5"><User className="w-3.5 h-3.5" /></div>
                       </div>
@@ -1092,12 +1103,14 @@ else if (activeTab === 'PDF Uploader') endpoint = 'https://buitems-ai-production
                   
                   <div className="relative flex items-center bg-zinc-50 border border-zinc-300 focus-within:border-emerald-600 rounded-2xl px-4 py-2 shadow-lg transition-all">
                     <Sparkles className="w-4 h-4 text-emerald-600 mr-3 shrink-0" />
-                    <input
-                      type="text"
+                    <textarea
+                      ref={inputRef}
+                      rows={1}
                       value={currentToolState.input}
                       onChange={handleInputChange}
+                      onInput={(e) => handleInputAutoResize(e)}
                       placeholder="Ask AI anything or write your request..."
-                      className="w-full bg-transparent py-3 text-sm text-zinc-900 placeholder-zinc-400 focus:outline-none"
+                      className="w-full bg-transparent py-2 text-sm sm:text-base text-zinc-900 placeholder-zinc-400 focus:outline-none resize-none break-words whitespace-pre-wrap"
                     />
                     
                     <button

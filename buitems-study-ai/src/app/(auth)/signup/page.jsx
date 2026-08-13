@@ -21,7 +21,7 @@ export default function SignupPage() {
     setError('');
     setLoading(true);
 
-    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000';
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://buitems-ai-production.up.railway.app';
 
     try {
       const res = await fetch(`${backendUrl}/api/auth/signup`, {
@@ -135,7 +135,7 @@ export default function SignupPage() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Mir Shaharyar"
+                  placeholder="Your full name"
                   className="w-full px-4 py-3.5 rounded-xl bg-white border border-zinc-300 text-zinc-900 text-sm focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all font-medium placeholder:text-zinc-400 shadow-sm"
                   required
                 />
