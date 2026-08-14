@@ -1,19 +1,16 @@
 'use client';
 
-
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { 
-  Lightbulb, Send, Settings, FileText, HelpCircle, User, X, 
-  CheckCircle2, Trash2, LogOut, Sun, Moon, Edit3, BookmarkPlus, 
+  Send, Settings, FileText, HelpCircle, User, X, 
+  CheckCircle2, Trash2, LogOut, BookmarkPlus, 
   BookOpen, ArrowRight, RefreshCcw, ImagePlus, FileUp, Menu, 
-  Sparkles, Bot, Zap, Flame, Compass, Paperclip, Mic 
-} from 'lucide-react';
+  Sparkles} from 'lucide-react';
 import { secureFetch } from '@/utils/apiHelper';
-import StructuredResponseRenderer from '@/components/StructuredResponseRenderer';
 import AIResponseCard from '@/components/AIResponseCard';
 import SettingsModal from '@/components/SettingsModal';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/layout/Sidebar';
 
 // --- STORAGE HELPER ---
 const updateStorage = (key, value) => {
@@ -30,6 +27,7 @@ function DashboardPage() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [currentChatId, setCurrentChatId] = useState(null);
   const chatEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -466,91 +464,22 @@ function DashboardPage() {
         />
       )}
 
-      {/* Sidebar */}
-      <aside className={`fixed md:relative inset-y-0 left-0 z-30 w-72 border-r border-zinc-200 bg-zinc-50/95 backdrop-blur-2xl flex flex-col justify-between p-4 transform transition-transform duration-300 ease-in-out ${isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
-        <div>
-          <div className="flex items-center justify-between px-2 py-3 mb-6 border-b border-zinc-200">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-green-400 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.4)] text-white">
-                <Sparkles className="w-5 h-5 animate-pulse text-white" />
-              </div>
-              <div>
-                <h1 className="text-sm font-extrabold tracking-wider text-zinc-900">Echo AI Study</h1>
-                <p className="text-[10px] text-zinc-500 font-semibold tracking-widest uppercase truncate max-w-[120px]">{userName}</p>
-              </div>
-            </div>
-            <button 
-              onClick={() => setIsMobileSidebarOpen(false)}
-              className="md:hidden text-zinc-500 hover:text-black p-1"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 px-3 mb-2">Core Tools</div>
-          <nav className="space-y-1.5">
-            {['Ask Anything', 'Note Expander', 'PDF Uploader'].map((name) => {
-              const isActive = activeTab === name;
-              return (
-                <button
-                  key={name}
-                  onClick={() => { setActiveTab(name); handleExitTest(); setViewingBookshelf(null); setIsMobileSidebarOpen(false); }}
-                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                    isActive
-                       ? 'bg-zinc-200 text-black border border-zinc-300 shadow-sm'
-                      : 'text-zinc-600 hover:text-black hover:bg-zinc-100'
-                  }`}
-                >
-                  <FileText className={`w-4 h-4 ${isActive ? 'text-emerald-600' : 'text-zinc-500'}`} /> {name}
-                </button>
-              );
-            })}
-          </nav>
-
-          <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 px-3 mt-6 mb-2">Library & Workspace</div>
-          <nav className="space-y-1.5">
-            {['Personal Bookshelf', 'Mock Tests'].map((name) => {
-              const isActive = activeTab === name;
-              return (
-                <button
-                  key={name}
-                  onClick={() => { setActiveTab(name); setViewingBookshelf(null); setIsMobileSidebarOpen(false); }}
-                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                    isActive
-                      ? 'bg-zinc-200 text-black border border-zinc-300 shadow-sm'
-                      : 'text-zinc-600 hover:text-black hover:bg-zinc-100'
-                  }`}
-                >
-                  <HelpCircle className={`w-4 h-4 ${isActive ? 'text-emerald-600' : 'text-zinc-500'}`} /> {name}
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-
-        {/* Account Box */}
-        <div className="pt-4 border-t border-zinc-200 space-y-2">
-          <button
-            onClick={() => { setIsSettingsOpen(true); setIsMobileSidebarOpen(false); }}
-            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-zinc-700 hover:text-black hover:bg-zinc-100 transition-all w-full"
-          >
-            <div className="w-7 h-7 rounded-lg bg-zinc-200 border border-zinc-300 text-zinc-700 flex items-center justify-center font-bold text-xs shadow-sm">
-              <Settings className="w-3.5 h-3.5" />
-            </div>
-            <span>Settings & Profile</span>
-          </button>
-          
-          <button
-            onClick={handleLogout}
-            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 transition-all w-full"
-          >
-            <div className="w-7 h-7 rounded-lg bg-red-100 text-red-600 flex items-center justify-center font-bold text-xs">
-              <LogOut className="w-3.5 h-3.5" />
-            </div>
-            <span>Logout</span>
-          </button>
-        </div>
-      </aside>
+      {/* 🆕 Imported Sidebar Component Integration */}
+      <Sidebar
+        activeTool={activeTab}
+        setActiveTool={(tool) => {
+          setActiveTab(tool);
+          handleExitTest();
+          setViewingBookshelf(null);
+          setIsMobileSidebarOpen(false);
+        }}
+        currentChatId={currentChatId}
+        onSelectChat={(chatId) => {
+          setCurrentChatId(chatId);
+          setIsMobileSidebarOpen(false);
+        }}
+        onNewChat={handleResetSession}
+      />
 
       {/* Main Workspace Area */}
       <main className="flex-1 flex flex-col justify-between bg-transparent relative z-10 overflow-hidden w-full">
@@ -839,7 +768,7 @@ function DashboardPage() {
           </div>
         ) : (
           <>
-            {/* Chat View (FIXED RESPONSIVE ALIGNMENT & PADDING) */}
+            {/* Chat View */}
             <div className="flex-1 overflow-y-auto px-3 py-4 sm:p-6">
               <div className="max-w-4xl mx-auto w-full space-y-4 sm:space-y-6">
                 {currentToolState.messages.length === 0 ? (
@@ -1086,7 +1015,7 @@ function DashboardPage() {
         onClose={() => setIsSettingsOpen(false)}
       />
     </div>
-  );s
+  );
 }
 
 export default DashboardPage;
