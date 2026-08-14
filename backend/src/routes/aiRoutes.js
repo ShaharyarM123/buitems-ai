@@ -1,4 +1,4 @@
-//2md edit
+//3rd edit
 
 import express from 'express';
 import { 
@@ -19,10 +19,38 @@ router.post('/pdf-analysis', authMiddleware, handleAIController);
 
 // 2. Chat History & Sidebar Endpoints
 router.get('/history', authMiddleware, getUserChatHistory);              // Saari chats ki list
-router.get('/history/:chatId', authMiddleware, getSingleChatMessages);   // Specific chat ke messages
-router.delete('/history/:chatId', authMiddleware, deleteChat);           // Chat delete karne ke liye
+router.get('/chat/:chatId', authMiddleware, getSingleChatMessages);      // Specific chat ke messages
+router.delete('/chat/:chatId', authMiddleware, deleteChat);              // Chat delete karne ke liye
 
 export default router;
+
+
+
+//2md edit
+
+// import express from 'express';
+// import { 
+//   handleAIController, 
+//   getUserChatHistory, 
+//   getSingleChatMessages, 
+//   deleteChat 
+// } from '../controllers/aiController.js';
+// import authMiddleware from '../middleware/authMiddleware.js';
+
+// const router = express.Router();
+
+// // 1. Main AI Controller Routes (Protected with Auth)
+// router.post('/ai', authMiddleware, handleAIController);
+// router.post('/ask-anything', authMiddleware, handleAIController);
+// router.post('/expand-notes', authMiddleware, handleAIController);
+// router.post('/pdf-analysis', authMiddleware, handleAIController);
+
+// // 2. Chat History & Sidebar Endpoints
+// router.get('/history', authMiddleware, getUserChatHistory);              // Saari chats ki list
+// router.get('/history/:chatId', authMiddleware, getSingleChatMessages);   // Specific chat ke messages
+// router.delete('/history/:chatId', authMiddleware, deleteChat);           // Chat delete karne ke liye
+
+// export default router;
 
 
 

@@ -13,6 +13,7 @@ import { secureFetch } from '@/utils/apiHelper';
 import StructuredResponseRenderer from '@/components/StructuredResponseRenderer';
 import AIResponseCard from '@/components/AIResponseCard';
 import SettingsModal from '@/components/SettingsModal';
+import Sidebar from '@/components/Sidebar';
 
 // --- STORAGE HELPER ---
 const updateStorage = (key, value) => {
